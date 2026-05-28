@@ -9,7 +9,7 @@ Incluye una portada de diseño hecha con TikZ, paleta de colores institucional, 
 ## Vista previa
 
 <!-- Reemplaza esta línea con una captura de tu presentación -->
-![Vista previa de la plantilla](img/preview.png)
+![Vista previa de la plantilla](img/preview.jpg)
 
 ## Características
 

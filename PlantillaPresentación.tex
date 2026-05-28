@@ -1,0 +1,124 @@
+\documentclass[aspectratio=169]{beamer}
+
+% ===== Tema FCFM - UAdeC ====
+\usetheme{FCFM}
+
+% ===== Paquetes =====
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\usepackage[backend=biber, style=numeric, sortcites]{biblatex}
+\addbibresource{referencias.bib}
+
+% ===== Datos de Portada ====
+\title[Plantilla FCFM]{Plantilla de la Facultad de Ciencias Físico-Matemáticas}
+\subtitle{Prueba de texto}
+\date{\today}
+\author[R. Chávez B.]{Roberto Chávez Berlanga}
+\institute[UAdeC]{Universidad Autónoma de Coahuila}
+
+% ===== Inicio de Documento ====
+\begin{document}
+	
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	\section{Estructura y bloques}
+	
+	\begin{frame}{Los bloques hacen que todo resalte}
+		\begin{block}{Bloque por defecto}
+			Este es un bloque por defecto.
+		\end{block}
+		\begin{alertblock}{Bloque de Alerta}
+			Este es un bloque de alerta.
+		\end{alertblock}
+		\begin{exampleblock}{Bloque de Ejemplo}
+			Este es un bloque de ejemplos.
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Listas e items}
+		\begin{itemize}
+			\item Primer punto principal.
+			\begin{itemize}
+				\item Subpunto con triángulo.
+				\item Otro subpunto.
+			\end{itemize}
+			\item Segundo punto principal.
+			\item Tercer punto principal.
+		\end{itemize}
+	\end{frame}
+	
+	\section{Matemáticas}
+	
+	\begin{frame}{Puedes escribir matemáticas aquí}
+		\begin{equation}
+			a^2 = \alpha^2 + c^2
+		\end{equation}
+		\begin{equation}
+			\int_{0}^{\infty} e^{-x^2}\, dx = \frac{\sqrt{\pi}}{2}
+		\end{equation}
+	\end{frame}
+	
+	\begin{frame}{Una tabla sencilla}
+		\begin{center}
+			\begin{tabular}{lcc}
+				\toprule
+				Método & Tiempo & Error \\
+				\midrule
+				Euler        & 0.12 s & 0.05 \\
+				Runge--Kutta & 0.45 s & 0.001 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+	\end{frame}
+	
+	\section{Código}
+	
+	\begin{frame}[fragile]{Ejemplo de código en Python}
+		\begin{lstlisting}[language=Python]
+			def factorial(n):
+			# Caso base
+			if n <= 1:
+			return 1
+			return n * factorial(n - 1)
+			
+			print(factorial(5))
+		\end{lstlisting}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Ejemplo de código en C}
+		\begin{lstlisting}[language=C]
+			#include <stdio.h>
+			
+			int main(void) {
+				// Imprime los primeros cinco enteros
+				for (int i = 0; i < 5; i++) {
+					printf("Valor: %d\n", i);
+				}
+				return 0;
+			}
+		\end{lstlisting}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Comentarios con acentos }
+		\begin{lstlisting}[language=Python]
+			# Función que calcula el área de un círculo
+			def area_circulo(radio):
+			# El número pi está aproximado
+			pi = 3.1416
+			return pi * radio ** 2  # ¿Está bien así?
+		\end{lstlisting}
+	\end{frame}
+	
+	\begin{frame}{Un tema con citas}
+		Como se demostró en trabajos previos \cite{einstein1905},
+		la relatividad cambió la física. Otros autores
+		\cite{knuth1984, lamport1994} aportaron al cómputo.
+	\end{frame}
+	
+	\begin{frame}[allowframebreaks]{Referencias}
+		\printbibliography
+	\end{frame}
+	
+\end{document}

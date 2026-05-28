@@ -1,0 +1,181 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeFCFM}[2026/05/19 Tema Beamer Facultad de Ciencias Fisico Matematicas]
+
+\RequirePackage[defaultfam,tabular,lining]{montserrat}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\RequirePackage{listings}
+
+
+% ===== COLORES INSTITUCIONALES =====
+\definecolor{facPrimario}{RGB}{50, 81, 172}
+\definecolor{facSecundario}{RGB}{191, 155, 76}
+\definecolor{facClaro}{RGB}{140, 156, 156}
+\definecolor{facTexto}{RGB}{30, 30, 30}
+
+% ===== LOGOS =====
+\providecommand{\logouniversidad}{img/UAdeC}
+\providecommand{\logofacultad}{img/FCFM}
+
+\newcommand{\setlogouniversidad}[1]{\renewcommand{\logouniversidad}{#1}}
+\newcommand{\setlogofacultad}[1]{\renewcommand{\logofacultad}{#1}}
+
+% ===== APLICAR COLORES =====
+\setbeamercolor{structure}{fg=facPrimario}
+\setbeamercolor{title}{fg=white, bg=facPrimario}
+\setbeamercolor{frametitle}{fg=white, bg=facPrimario}
+\setbeamercolor{author}{fg=facPrimario}
+\setbeamercolor{date}{fg=facClaro}
+\setbeamercolor{institute}{fg=facPrimario}
+
+\setbeamercolor{block title}{fg=white, bg=facPrimario}
+\setbeamercolor{block body}{fg=facTexto, bg=facClaro!20}
+\setbeamercolor{block title example}{fg=white, bg=facSecundario}
+\setbeamercolor{block body example}{fg=facTexto, bg=facSecundario!15}
+\setbeamercolor{block title alerted}{fg=white, bg=red!70!black}
+\setbeamercolor{block body alerted}{fg=facTexto, bg=red!10}
+
+\setbeamercolor{itemize item}{fg=facSecundario}
+\setbeamercolor{itemize subitem}{fg=facPrimario}
+
+% ===== JERARQUÍAS TIPOGRÁFICAS =====
+\setbeamerfont{title}{series=\bfseries, size=\LARGE}
+\setbeamerfont{subtitle}{series=\bfseries, size=\large}
+\setbeamerfont{frametitle}{series=\bfseries, size=\large}
+\setbeamerfont{framesubtitle}{series=\bfseries, size=\normalsize}
+\setbeamerfont{author}{series=\mdseries, size=\small}
+\setbeamerfont{institute}{series=\mdseries, size=\footnotesize}
+\setbeamerfont{date}{series=\mdseries, size=\footnotesize}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamerfont{normal text}{series=\mdseries}
+\setbeamerfont{author in head/foot}{series=\bfseries, size=\footnotesize}
+\setbeamerfont{title in head/foot}{series=\mdseries, size=\footnotesize}
+\setbeamerfont{date in head/foot}{series=\mdseries, size=\footnotesize}
+
+% ===== ELEMENTOS INTERNOS =====
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% ===== PORTADA PERSONALIZADA =====
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture, overlay]
+
+\fill[facPrimario]
+  ([yshift=0pt]current page.north west) rectangle
+  ([yshift=-2.2cm]current page.north east);
+
+\fill[facPrimario!70] 
+  ([yshift=0pt]current page.north east) -- 
+  ([xshift=-4cm, yshift=0pt]current page.north east) -- 
+  ([yshift=-2.2cm]current page.north east) -- cycle;
+\fill[facSecundario!80] 
+  ([xshift=-4cm, yshift=0pt]current page.north east) -- 
+  ([xshift=-2cm, yshift=0pt]current page.north east) -- 
+  ([xshift=-3cm, yshift=-2.2cm]current page.north east) -- cycle;
+
+    \shade[left color=facSecundario, right color=facSecundario!60]
+      ([yshift=-2.2cm]current page.north west) rectangle
+      ([yshift=-2.35cm]current page.north east);
+    
+    % Logo universidad
+    \node[anchor=north west, inner sep=0pt] 
+      at ([xshift=0.6cm, yshift=-0.35cm]current page.north west) 
+      {\includegraphics[height=1.5cm]{\logofacultad}};
+    
+    % Logo facultad
+    \node[anchor=north east, inner sep=0pt] 
+      at ([xshift=-0.6cm, yshift=-0.35cm]current page.north east) 
+      {\includegraphics[height=1.5cm]{\logouniversidad}};
+  \end{tikzpicture}
+  
+  \vspace{2.5cm}
+  
+  \begin{center}
+    {\usebeamerfont{title}\usebeamercolor[fg]{structure}\inserttitle\par}
+    \vspace{0.3cm}
+    \ifx\insertsubtitle\@empty\else
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{facClaro}\insertsubtitle\par}
+      \vspace{0.3cm}
+    \fi
+    
+    \vspace{0.8cm}
+    {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+    \vspace{0.2cm}
+    {\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}
+    \vspace{0.3cm}
+    {\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+  \end{center}
+}
+
+% ===== PIE DE PÁGINA =====
+\setbeamertemplate{footline}{
+  \leavevmode
+  \hbox{
+    \begin{beamercolorbox}[wd=.3\paperwidth, ht=2.5ex, dp=1ex, center]{author in head/foot}
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.5\paperwidth, ht=2.5ex, dp=1ex, center]{title in head/foot}
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[wd=.2\paperwidth, ht=2.5ex, dp=1ex, center]{date in head/foot}
+      \usebeamerfont{date in head/foot}
+      \insertframenumber{} / \inserttotalframenumber
+ 
+      
+    \end{beamercolorbox}
+  }
+  \vskip0pt
+}
+\setbeamercolor{author in head/foot}{fg=white, bg=facPrimario}
+\setbeamercolor{title in head/foot}{fg=white, bg=facPrimario!80}
+\setbeamercolor{date in head/foot}{fg=white, bg=facPrimario}
+
+
+% ====== LISTINGS ======
+\lstdefinestyle{FCFM}{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{facSecundario}\bfseries,
+  commentstyle=\color{facClaro}\itshape,
+  stringstyle=\color{facPrimario},
+  numberstyle=\tiny\color{facClaro},
+  identifierstyle=\color{facTexto},
+  showstringspaces=false,
+  showspaces=false,
+  showtabs=false,
+  tabsize=3,
+  breaklines=true,
+  breakatwhitespace=true,
+  columns=fullflexible,
+  frame=single,
+  framesep=5pt,
+  rulecolor=\color{facClaro},
+  backgroundcolor=\color{facClaro!10},
+  numbers=left,
+  numbersep=8pt,
+  xleftmargin=15pt,
+  aboveskip=10pt,
+  belowskip=10pt,
+  extendedchars=true,
+  inputencoding=utf8,
+  literate=%
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {ñ}{{\~n}}1 {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1
+    {Ú}{{\'U}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1,
+}
+
+\lstset{style=FCFM}
+
+% ===== BIBLIOGRAFIAS =====
+
+\setbeamercolor{bibliography item}{fg=facPrimario}
+\setbeamercolor{bibliography entry author}{fg=facTexto}
+\setbeamercolor{bibliography entry title}{fg=facPrimario}
+\setbeamercolor{bibliography entry location}{fg=facClaro}
+\setbeamercolor{bibliography entry note}{fg=facClaro}
+\setbeamertemplate{bibliography item}[text]
+
+\endinput

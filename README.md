@@ -1,4 +1,4 @@
-# Plantilla Beamer — FCFM UAdeC
+# Plantilla Beamer — UAdeC FCFM
 
 Tema de [Beamer](https://ctan.org/pkg/beamer) **no oficial** para presentaciones de la Facultad de Ciencias Físico-Matemáticas (FCFM) de la Universidad Autónoma de Coahuila (UAdeC).
 

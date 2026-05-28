@@ -123,7 +123,7 @@ Edita las definiciones de color en `beamerthemeFCFM.sty`:
 ```
 .
 ├── beamerthemeFCFM.sty   # El tema
-├── main.tex              # Documento de ejemplo
+├── PlantillaPresentación.tex              # Documento de ejemplo
 ├── referencias.bib       # Bibliografía de ejemplo
 └── img/
     ├── FCFM.png          # Logo de la facultad

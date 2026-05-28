@@ -33,7 +33,7 @@ Incluye una portada de diseño hecha con TikZ, paleta de colores institucional, 
 
 1. Descarga o clona este repositorio:
    ```bash
-   git clone https://github.com/usuario/plantilla-fcfm.git
+   git clone https://github.com/rochbe02/Plantilla-UAdeC-FCFM.git
    ```
 2. Copia `beamerthemeFCFM.sty` a la raíz de tu proyecto (al mismo nivel que tu archivo `.tex`).
 3. Coloca los logos en una carpeta `img/`:
